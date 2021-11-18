@@ -1,0 +1,56 @@
+{
+  "name": "woda20",
+  "title": "World of Darkness 20th Anniversay Edition",
+  "description": "World of Darkness 20th Anniversay Edition system for Foundry VTT!",
+  "author": "Doom_Days, RahimFatih",
+  "authors": [],
+  "url": "https://github.com/DoomTdays/World-of-Darkness-20th-Anniversay-Edition.git",
+  "license": "LICENSE.txt",
+  "flags": {},
+  "version": "1.0.0",
+  "minimumCoreVersion": "0.8.9",
+  "compatibleCoreVersion": "0.8.9",
+  "scripts": [],
+  "esmodules": [
+    "module/main.js"
+  ],
+  "styles": [
+    "css/woda20.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "fr",
+      "name": "French",
+      "path": "lang/fr.json"
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Brazilian Portuguese",
+      "path": "lang/pt-BR.json"
+    },
+    {
+      "lang": "es",
+      "name": "Spanish",
+      "path": "lang/es.json"
+    },
+    {
+      "lang": "de",
+      "name": "German",
+      "path": "lang/de.json"
+    }
+  ],
+  "packs": [],
+  "system": [],
+  "dependencies": [],
+  "socket": false,
+  "manifest": "https://github.com/DoomTdays/World-of-Darkness-20th-Anniversay-Edition/main/system.json",
+  "download": "https://github.com/DoomTdays/World-of-Darkness-20th-Anniversay-Edition/archive/refs/heads/main.zip",
+  "protected": false,
+  "gridDistance": 1,
+  "gridUnits": "m"
+}

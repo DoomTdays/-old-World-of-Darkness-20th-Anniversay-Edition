@@ -1,0 +1,884 @@
+{
+  "Actor": {
+    "types": ["character", "vampire", "werewolf", "mage", "ghoul", "mortal", "coterie"],
+    "templates": {
+      "base": {
+        "headers": {
+          "generationLocked":false
+        },
+        "exp": {
+          "value": 0,
+          "max": 0
+        },
+        "health": {
+          "aggravated": 0,
+          "superficial": 0,
+          "lethal" : 0,
+          "max": 5
+        },
+        "woundPenalties" : {
+          "healthy" : {
+            "value" : "healthy", 
+            "name" : "WoDA20.Healthy"
+          },
+          "bruised" : {
+            "value" : "bruised", 
+            "name" : "WoDA20.Bruised"
+          }, 
+          "hurt" : {
+            "value" : "hurt",
+            "name" : "WoDA20.Hurt"
+          }, 
+          "injured" : {
+            "value" : "injured",
+            "name" : "WoDA20.Injured"
+          }, 
+          "wounded" : {
+            "value" : "wounded",
+            "name" : "WoDA20.Wounded"
+          },
+          "mauled" : {
+            "value" : "mauled",
+            "name" : "WoDA20.Mauled"
+          }, 
+          "crippled" : {
+            "value" : "crippled", 
+            "name" : "WoDA20.Crippled"
+          }, 
+          "incapacitated" : {
+            "value" : "incapacitated", 
+            "name" : "WoDA20.Incapacitated"
+          }
+        }, 
+        "willpower": {
+          "aggravated": 0,
+          "superficial": 0,
+          "max": 5
+        },
+        "humanity": {
+          "value": 0,
+          "bearing": ""
+        },
+        "virtues": {
+          "conscience": {
+            "value": 1,
+            "name": "WoDA20.Conscience/Conviction"
+          },
+          "selfControl": {
+            "value": 1,
+            "name": "WoDA20.Self-Control/Instinct"
+          },
+          "courage": {
+            "value": 1,
+            "name": "WoDA20.Courage"
+          }
+        },
+        "bloodpool": {
+          "full": 0,
+          "max": 5
+        },
+        "gnosis": {
+          "full": 0,
+          "max": 5
+        },
+        "rage": {
+          "full": 0,
+          "max": 5
+        },
+        "arete": {
+          "full": 0,
+          "max": 5
+        },
+        "abilities": {
+          "strength": {
+            "value": 1,
+            "name": "WoDA20.Strength"
+          },
+          "charisma": {
+            "value": 1,
+            "name": "WoDA20.Charisma"
+          },
+          "perception": {
+            "value": 1,
+            "name": "WoDA20.Perception"
+          },
+          "dexterity": {
+            "value": 1,
+            "name": "WoDA20.Dexterity"
+          },
+          "manipulation": {
+            "value": 1,
+            "name": "WoDA20.Manipulation"
+          },
+          "intelligence": {
+            "value": 1,
+            "name": "WoDA20.Intelligence"
+          },
+          "stamina": {
+            "value": 1,
+            "name": "WoDA20.Stamina"
+          },
+          "Appearance": {
+            "value": 1,
+            "name": "WoDA20.Appearance"
+          },
+          "wits": {
+            "value": 1,
+            "name": "WoDA20.Wits"
+          }
+        },
+        "skills": {
+          "alertness": {
+            "value": 0,
+            "name": "WoDA20.Alertness"
+          },
+          "animal ken": {
+            "value": 0,
+            "name": "WoDA20.AnimalKen"
+          },
+          "academics": {
+            "value": 0,
+            "name": "WoDA20.Academics"
+          },
+          "athletics": {
+            "value": 0,
+            "name": "WoDA20.Athletics"
+          },
+          "craft": {
+            "value": 0,
+            "name": "WoDA20.Craft"
+          },
+          "computer": {
+            "value": 0,
+            "name": "WoDA20.Computer"
+          },
+          "awareness": {
+            "value": 0,
+            "name": "WoDA20.Awareness"
+          },
+          "drive": {
+            "value": 0,
+            "name": "WoDA20.Drive"
+          },
+          "finance": {
+            "value": 0,
+            "name": "WoDA20.Finance"
+          },
+          "brawl": {
+            "value": 0,
+            "name": "WoDA20.Brawl"
+          },
+          "etiquette": {
+            "value": 0,
+            "name": "WoDA20.Etiquette"
+          },
+          "investigation": {
+            "value": 0,
+            "name": "WoDA20.Investigation"
+          },
+          "empathy": {
+            "value": 0,
+            "name": "WoDA20.Empathy"
+          },
+          "firearms": {
+            "value": 0,
+            "name": "WoDA20.Firearms"
+          },
+          "law": {
+            "value": 0,
+            "name": "WoDA20.Law"
+          },
+          "expression": {
+            "value": 0,
+            "name": "WoDA20.Expression"
+          },
+          "larceny": {
+            "value": 0,
+            "name": "WoDA20.Larceny"
+          },
+          "medicine": {
+            "value": 0,
+            "name": "WoDA20.Medicine"
+          },
+          "intimidation": {
+            "value": 0,
+            "name": "WoDA20.Intimidation"
+          },
+          "melee": {
+            "value": 0,
+            "name": "WoDA20.Melee"
+          },
+          "occult": {
+            "value": 0,
+            "name": "WoDA20.Occult"
+          },
+          "leadership": {
+            "value": 0,
+            "name": "WoDA20.Leadership"
+          },
+          "performance": {
+            "value": 0,
+            "name": "WoDA20.Performance"
+          },
+          "politics": {
+            "value": 0,
+            "name": "WoDA20.Politics"
+          },
+          "streetwise": {
+            "value": 0,
+            "name": "WoDA20.Streetwise"
+          },
+          "stealth": {
+            "value": 0,
+            "name": "WoDA20.Stealth"
+          },
+          "science": {
+            "value": 0,
+            "name": "WoDA20.Science"
+          },
+          "subterfuge": {
+            "value": 0,
+            "name": "WoDA20.Subterfuge"
+          },
+          "survival": {
+            "value": 0,
+            "name": "WoDA20.Survival"
+          },
+          "technology": {
+            "value": 0,
+            "name": "WoDA20.Technology"
+          }
+        },
+        "armor" : {
+          "class" : "", 
+          "rating" : "", 
+          "penalty" : "", 
+          "description" : ""
+        }
+      },
+      "disciplines": {
+        "disciplines": {
+          "abombwe": {
+            "name": "WoDA20.Abombwe",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "abyss_mysticism": {
+            "name": "WoDA20.AbyssMysticism",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "akhu": {
+            "name": "WoDA20.Akhu",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "animalism": {
+            "name": "WoDA20.Animalism",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "auspex": {
+            "name": "WoDA20.Auspex",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "bardo": {
+            "name": "WoDA20.Bardo",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "celerity": {
+            "name": "WoDA20.Celerity",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "chimerstry": {
+            "name": "WoDA20.Chimerstry",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "daimonion": {
+            "name": "WoDA20.Daimonion",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "dark_thaumaturgy": {
+            "name": "WoDA20.DarkThaumaturgy",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "dementation": {
+            "name": "WoDA20.Dementation",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "dominate": {
+            "name": "WoDA20.Dominate",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "duranki": {
+            "name": "WoDA20.Duranki",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "flight": {
+            "name": "WoDA20.Flight",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "fortitude": {
+            "name": "WoDA20.Fortitude",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "melpominee": {
+            "name": "WoDA20.Melpominee",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "koldunic_sorcery": {
+            "name": "WoDA20.KoldunicSorcery",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "mortis": {
+            "name": "WoDA20.Mortis",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "mytherceria": {
+            "name": "WoDA20.Mytherceria",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "necromancy": {
+            "name": "WoDA20.Necromancy",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "obeah ": {
+            "name": "WoDA20.Obeah",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "obfuscate": {
+            "name": "WoDA20.Obfuscate",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "obtenebration": {
+            "name": "WoDA20.Obtenebration",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "ogham": {
+            "name": "WoDA20.Ogham",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "potence": {
+            "name": "WoDA20.Potence",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "presence": {
+            "name": "WoDA20.Presence",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "protean": {
+            "name": "WoDA20.Protean",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "quietus": {
+            "name": "WoDA20.Quietus",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "sadhana": {
+            "name": "WoDA20.Sadhana",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "sanguinus": {
+            "name": "WoDA20.Sanguinus",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "sielanic_thaumaturgy": {
+            "name": "WoDA20.SielanicThaumaturgy",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "sihr": {
+            "name": "WoDA20.Sihr",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "spiritus": {
+            "name": "WoDA20.Spiritus",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "temporis": {
+            "name": "WoDA20.Temporis",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "thanatosis": {
+            "name": "WoDA20.Thanatosis",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "thaumaturgy": {
+            "name": "WoDA20.Thaumaturgy",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "valeren": {
+            "name": "WoDA20.Valeren",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "vicissitude": {
+            "name": "WoDA20.Vicissitude",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "voudoun_necromancy": {
+            "name": "WoDA20.VoudounNecromancy",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "visceratika": {
+            "name": "WoDA20.Visceratika",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          },
+          "wanga": {
+            "name": "WoDA20.Wanga",
+            "value": 0,
+            "powers": [],
+            "visible": false
+          }
+        }
+      },
+      "paths": {
+        "akhu": {
+          "name": "WoDA20.Akhu",
+          "value": 0,
+          "powers": [],
+          "visible": false
+        },
+        "dark_thaumaturgy": {
+          "name": "WoDA20.DarkThaumaturgy",
+          "value": 0,
+          "powers": [],
+          "visible": false
+        },
+        "duranki": {
+          "name": "WoDA20.Duranki",
+          "value": 0,
+          "powers": [],
+          "visible": false
+        },
+        "koldunic_sorcery": {
+          "name": "WoDA20.KoldunicSorcery",
+          "value": 0,
+          "powers": [],
+          "visible": false
+        },
+        "necromancy": {
+          "name": "WoDA20.Necromancy",
+          "value": 0,
+          "powers": [],
+          "visible": false
+        },
+        "sadhana": {
+          "name": "WoDA20.Necromancy",
+          "value": 0,
+          "powers": [],
+          "visible": false
+        },
+        "thaumaturgy": {
+          "name": "WoDA20.Thaumaturgy",
+          "value": 0,
+          "powers": [],
+          "visible": false
+        },
+        "wanga": {
+          "name": "WoDA20.Wanga",
+          "value": 0,
+          "powers": [],
+          "visible": false
+        }
+      },
+      "rituals": {
+        "akhu": {
+          "name": "WoDA20.Akhu",
+          "value": 0,
+          "powers": [],
+          "visible": false
+        },
+        "dark_thaumaturgy": {
+          "name": "WoDA20.DarkThaumaturgy",
+          "value": 0,
+          "powers": [],
+          "visible": false
+        },
+        "duranki": {
+          "name": "WoDA20.Duranki",
+          "value": 0,
+          "powers": [],
+          "visible": false
+        },
+        "koldunic_sorcery": {
+          "name": "WoDA20.KoldunicSorcery",
+          "value": 0,
+          "powers": [],
+          "visible": false
+        },
+        "necromancy": {
+          "name": "WoDA20.Necromancy",
+          "value": 0,
+          "powers": [],
+          "visible": false
+        },
+        "sadhana": {
+          "name": "WoDA20.Necromancy",
+          "value": 0,
+          "powers": [],
+          "visible": false
+        },
+        "thaumaturgy": {
+          "name": "WoDA20.Thaumaturgy",
+          "value": 0,
+          "powers": [],
+          "visible": false
+        },
+        "wanga": {
+          "name": "WoDA20.Wanga",
+          "value": 0,
+          "powers": [],
+          "visible": false
+        }
+      }
+    },
+    "character": {
+      "templates": ["base", "disciplines"],
+      "headers": { }
+    },
+    "vampire": {
+      "templates": ["base", "disciplines"],
+      "headers": {
+        "clan": "",
+        "sire": "",
+        "generation": ""
+      },
+      "blood": {
+        "potency": 0,
+        "resonance": ""
+      },
+      "hunger": {
+        "value": 1
+      },
+      "biography": {
+        "nature": "",
+        "naturedescription": "",
+        "deamanor": "",
+        "deamanordescription": "",
+        "age": "",
+        "apparentage": "",
+        "dateofbirth": "",
+        "rip": "",
+        "hair": "",
+        "eyes": "",
+        "race": "",
+        "height": "",
+        "weight": "",
+        "nationality": "",
+        "sex": "",
+        "apperance": "",
+        "goals": "",
+        "history": ""
+      }
+    },
+    "werewolf": {
+      "templates": ["base", "disciplines"],
+      "headers": {
+        "breed": "",
+        "auspice": "",
+        "tribe": ""
+      },
+      "glory": {
+        "value": 0
+      },
+      "honor": {
+        "value": 0
+      },
+      "wisdom": {
+        "value": 0
+      },
+      "rank": {
+        "value": ""
+      },
+      "biography": {
+        "nature": "",
+        "naturedescription": "",
+        "deamanor": "",
+        "deamanordescription": "",
+        "age": "",
+        "dateofbirth": "",
+        "hair": "",
+        "eyes": "",
+        "race": "",
+        "height": "",
+        "weight": "",
+        "nationality": "",
+        "sex": "",
+        "apperance": "",
+        "pack": "",
+        "packdescription": "",
+        "totem": "",
+        "totemdescription": "",
+        "caernname": "",
+        "caernlocation": "",
+        "caerntype": "",
+        "caernlevel": "",
+        "caerntotem": "",
+        "caernleader": "",
+        "caerndetails": "",
+        "goals": "",
+        "history": ""
+      }
+    },
+    "mage": {
+      "templates": ["base", "disciplines"],
+      "headers": {
+        "essence": "",
+        "afflination": "",
+        "sect": ""
+      }
+    },
+    "ghoul": {
+      "templates": ["base", "disciplines"],
+      "headers": {
+        "domitor": "",
+        "duties": "",
+        "type": ""
+      },
+      "biography": {
+        "nature": "",
+        "naturedescription": "",
+        "deamanor": "",
+        "deamanordescription": "",
+        "age": "",
+        "apparentage": "",
+        "dateofbirth": "",
+        "placeofbirth": "",
+        "hair": "",
+        "eyes": "",
+        "race": "",
+        "height": "",
+        "weight": "",
+        "nationality": "",
+        "sex": "",
+        "apperance": "",
+        "goals": "",
+        "history": ""
+      }
+    },
+    "mortal": {
+      "templates": ["base"],
+      "headers": {
+        "age": "",
+        "sex": "",
+        "residence": ""
+      }
+    },
+    "coterie": {
+      "biography": "",
+      "equipment": "",
+      "notes": "",
+      "headers": {
+      "concept": ""
+      }
+    }
+  },
+  "Item": {
+    "types": ["power", "path", "ritual", "gift", "rite", "fetish", "background", "merit", "flaw", "boon", "bloodbond", "derangement", "othertrait", "weapon", "gear", "equipment", "feedingground", "vehicle", "specialty", "customRoll" ], 
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "power": {
+      "templates": ["base"],
+      "discipline": "rituals",
+      "duration": "",
+      "dice1": "discipline",
+      "dice2": "discipline",
+      "cost": "",
+      "rollable": false,
+      "skill": false
+    },
+    "path": {
+      "templates": ["base"],
+      "discipline": "rituals",
+      "duration": "",
+      "dice1": "discipline",
+      "dice2": "discipline",
+      "cost": "",
+      "rollable": false,
+      "skill": false
+    },
+    "ritual": {
+      "templates": ["base"],
+      "discipline": "rituals",
+      "duration": "",
+      "dice1": "discipline",
+      "dice2": "discipline",
+      "cost": "",
+      "rollable": false,
+      "skill": false
+    },
+    "gift": {
+      "templates": ["base"],
+      "discipline": "rituals",
+      "duration": "",
+      "dice1": "discipline",
+      "dice2": "discipline",
+      "cost": "",
+      "rollable": false,
+      "skill": false
+    },
+    "rite": {
+      "templates": ["base"],
+      "discipline": "rituals",
+      "duration": "",
+      "dice1": "discipline",
+      "dice2": "discipline",
+      "cost": "",
+      "rollable": false,
+      "skill": false
+    },
+    "background": {
+      "templates": ["base"],
+      "points": 0
+    },
+    "merit": {
+      "templates": ["base"],
+      "merittype": "",
+      "meritcost": "0" 
+    },
+    "flaw": {
+      "templates": ["base"],
+      "flawtype": "",
+      "flawbonus": "0"
+    },
+    "boon": {
+      "templates": ["base"],
+      "boontype": "Trivial"
+    },
+    "bloodbond": {
+      "templates": ["base"],
+      "bloodbondtype": "0",
+      "bloodbondrating": "0"
+    },
+    "derangement": {
+      "templates": ["base"],
+      "derangementtype": "0"
+    },
+    "othertrait": {
+      "templates": ["base"],
+      "points": 0
+    },
+    "weapon": {
+      "templates": ["base"],
+      "type": "0",
+      "diff": "0",
+      "damage": "0",
+      "range": "0",
+      "rate": "0",
+      "clip": "0",
+      "conceal": "0"
+    },
+    "gear": {
+      "templates": ["base"],
+      "geartype": "-"
+    },
+    "equipment": {
+      "templates": ["base"],
+      "equipmenttype": "personal",
+      "equipmentlocation": "unknown"
+    },
+    "feedingground": {
+      "templates": ["base"],
+      "feedinggroundlocation": "unknown"
+    },
+    "fetish": {
+      "templates": ["base"],
+      "fetishelevel": "0",
+      "fetishegnosis": "0"
+    },
+    "vehicle": {
+      "templates": ["base"],
+      "vehicletype": "unknown",
+      "vehiclemaneuver": "0",
+      "vehiclesafespeed": "0 kph",
+      "vehiclemaxspeed": "0 kph"
+    },
+    "specialty": {
+      "templates": ["base"],
+      "skill": ""
+    },
+    "customRoll": {
+      "templates": ["base"],
+      "dice1": "",
+      "dice2": ""
+    }
+  }
+}
