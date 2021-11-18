@@ -1,0 +1,21 @@
+<div class="resource flex-group-center Rage">
+    <div class="flexrow">
+        <i class="fas fa-minus resource-control resource-minus" data-resource="rage" data-action="minus"></i>
+        <label 
+        for="data.data.rage" 
+        class="resource-label vrollable"
+        data-roll="{{data.data.rage.max}}"
+        data-noability="true"
+        data-label="{{localize 'WoDA20.RollingRage'}}"
+        >{{localize "WoDA20.Rage"}}
+    </label>
+        <i class="fas fa-plus resource-control resource-plus" data-resource="rage" data-action="plus"></i>
+    </div>
+    <div class="resource-content flexrow flex-center flex-between">
+        <div class="resource-counter" data-states="x:full" data-max="{{data.data.rage.max}}" data-full="{{data.data.rage.full}}" data-name="data.rage">
+            {{#numLoop data.data.rage.max}}
+            <span class="resource-counter-step" data-index="{{this}}" data-state=""></span>
+            {{/numLoop}}
+        </div>
+    </div>
+</div>

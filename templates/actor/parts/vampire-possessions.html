@@ -1,0 +1,262 @@
+<div class="tab combat" data-group="primary" data-tab="combat">
+    
+    <!-- Weapons -->
+    <div class="flex-group-center" style="width: 100%; display:inline-block; margin-right: 4%">
+        <div class="skills grid grid-1col flex-group-center">
+        {{#if isCharacter}}
+        <label class="label-header">Weapon / Attack</label>
+        <ol class="items-list">
+            <li class="item flexrow item-header">
+                <div class="item-image"></div>
+                <div class="item-name">Name</div>
+                <div class="item-name">Diff.</div>
+                <div class="item-name">Damage</div>
+                <div class="item-name">Range</div>
+                <div class="item-name">Rate</div>
+                <div class="item-name">Clip</div>
+                <div class="item-name">Conceal</div>
+                <div class="item-controls">
+                    <a class="item-control item-create" title="{{localize 'WoDA20.AddItem'}}"
+                        data-type="weapon"><i class="fas fa-plus"></i> {{localize "WoDA20.AddItem"}}
+                    </a>
+                </div>
+            </li>
+            {{#each actor.weapons as |item id|}}
+            <li class="item flexcol" data-item-id="{{item._id}}">
+                <div class="flexrow">
+                    <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"
+                        alt="{{item.name}}" />
+                    </div>
+                    <h4 class="item-name collapsible">{{item.name}}</h4>
+                    <h4 class="item-name">{{item.data.diff}}</h4>
+                    <h4 class="item-name">{{item.data.damage}}</h4>
+                    <h4 class="item-name">{{item.data.range}}</h4>
+                    <h4 class="item-name">{{item.data.rate}}</h4>
+                    <h4 class="item-name">{{item.data.clip}}</h4>
+                    <h4 class="item-name">{{item.data.conceal}}</h4>
+                    <div class="item-controls">
+                        <a class="item-control item-chat" title="{{localize 'WoDA20.ShowToChat'}}"><i
+                            class="fas fa-comment-alt"></i></a>
+                        <a class="item-control item-edit" title="{{localize 'WoDA20.Edit'}}"><i
+                                class="fas fa-edit"></i></a>
+                        <a class="item-control item-delete" title="{{localize 'WoDA20.Delete'}}"><i
+                                class="fas fa-trash"></i></a>
+                    </div>
+                </div>
+                <div class="collapsible-content">
+                    {{{item.data.description}}}
+                </div>
+            </li>
+            {{/each}}
+        </ol>
+        <br/>
+        {{/if}}
+        </div>
+    </div>
+
+    <!-- Armor & Combat -->
+    <div class="skills grid grid-2col flex-group-center">
+        <!-- Armor -->
+        <div class="skills grid grid-1col flex-group-center" style="gap: 1px;">
+        <label class="label-header">Armor</label>
+        <div>
+            <lable style="float: left; padding-top: 5px">Class:</lable>
+            <span class="underline"><input class="underline" type="text" name="data.armor.class" value="{{data.data.armor.class}}" /></span>
+        </div>
+        <div>
+            <lable style="float: left; padding-top: 5px">Rating:</lable>
+            <span class="underline"><input class="underline" type="text" name="data.armor.rating" value="{{data.data.armor.rating}}" /></span>
+        </div>
+        <div>
+            <lable style="float: left; padding-top: 5px">Penalty:</lable>
+            <span class="underline"><input class="underline" type="text"  name="data.armor.penalty" value="{{data.data.armor.penalty}}" /></span>
+        </div>
+        <div style="padding-top: 10px;">
+            <lable style="float: center;">Description:</lable>
+            <div style="text-align: left; height: 150px; border-collapse: collapse; background: rgba(0, 0, 0, 0.05); border-top: 1px solid #7a7971; border-bottom: 1px solid #7a7971;">
+                {{editor content=data.data.armor.description target="data.armor.description" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+        </div>
+        <!-- Combat -->
+        <div class="skills grid grid-1col flex-group-center">
+            <label class="label-header">Combat</label>
+        </div>
+    </div>
+
+    <!-- Gear & Equipment -->
+    <div class="skills grid grid-2col flex-group-center">
+        <!-- Gear (Carried) -->
+        <div class="skills grid grid-1col flex-group-center">
+            {{#if isCharacter}}
+            <label class="label-header">Gear (Carried)</label>
+            <ol class="items-list">
+                <li class="item flexrow item-header">
+                    <div class="item-image"></div>
+                    <div class="item-name" style="text-align: left;">{{localize "WoDA20.Name"}}</div>
+                    <div class="item-name">{{localize "WoDA20.Type"}}</div>
+                    <div class="item-controls">
+                        <a class="item-control item-create" title="{{localize 'WoDA20.AddItem'}}"
+                            data-type="gear"><i class="fas fa-plus"></i> {{localize "WoDA20.AddItem"}}
+                        </a>
+                    </div>
+                </li>
+                {{#each actor.gears as |item id|}}
+                <li class="item flexcol" data-item-id="{{item._id}}">
+                    <div class="flexrow">
+                        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"
+                            alt="{{item.name}}" />
+                        </div>
+                        <h4 class="item-name collapsible" style="text-align: left;">{{item.name}}</h4>
+                        <h4 class="item-name" style="text-transform: capitalize;">{{item.data.geartype}}</h4>
+                        <div class="item-controls">
+                            <a class="item-control item-chat" title="{{localize 'WoDA20.ShowToChat'}}"><i
+                                class="fas fa-comment-alt"></i></a>
+                            <a class="item-control item-edit" title="{{localize 'WoDA20.Edit'}}"><i
+                                    class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="{{localize 'WoDA20.Delete'}}"><i
+                                    class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-content" style="text-align: left;">
+                        {{{item.data.description}}}
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+            <br/>
+            {{/if}}
+        </div>
+        <!-- Equipment -->
+        <div class="skills grid grid-1col flex-group-center">
+            {{#if isCharacter}}
+            <label class="label-header">Equipment (Owned)</label>
+            <ol class="items-list">
+                <li class="item flexrow item-header">
+                    <div class="item-image"></div>
+                    <div class="item-name" style="text-align: left;">{{localize "WoDA20.Name"}}</div>
+                    <div class="item-name">{{localize "WoDA20.Location"}}</div>
+                    <div class="item-controls">
+                        <a class="item-control item-create" title="{{localize 'WoDA20.AddItem'}}"
+                            data-type="equipment"><i class="fas fa-plus"></i> {{localize "WoDA20.AddItem"}}
+                        </a>
+                    </div>
+                </li>
+                {{#each actor.equipments as |item id|}}
+                <li class="item flexcol" data-item-id="{{item._id}}">
+                    <div class="flexrow">
+                        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"
+                            alt="{{item.name}}" />
+                        </div>
+                        <h4 class="item-name collapsible" style="text-align: left;">{{item.name}}</h4>
+                        <h4 class="item-name" style="text-transform: capitalize;">{{item.data.equipmentlocation}}</h4>
+                        <div class="item-controls">
+                            <a class="item-control item-chat" title="{{localize 'WoDA20.ShowToChat'}}"><i
+                                class="fas fa-comment-alt"></i></a>
+                            <a class="item-control item-edit" title="{{localize 'WoDA20.Edit'}}"><i
+                                    class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="{{localize 'WoDA20.Delete'}}"><i
+                                    class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-content" style="text-align: left;">
+                        {{{item.data.description}}}
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+            <br/>
+            {{/if}}
+        </div>
+    </div>
+
+    <!-- Feeding Grounds & Vehicles -->
+    <div class="skills grid grid-2col flex-group-center">
+        <!-- Feeding Grounds -->
+        <div class="skills grid grid-1col flex-group-center">
+            {{#if isCharacter}}
+            <label class="label-header">Feeding Ground</label>
+            <ol class="items-list">
+                <li class="item flexrow item-header">
+                    <div class="item-image"></div>
+                    <div class="item-name" style="text-align: left;">{{localize "WoDA20.Name"}}</div>
+                    <div class="item-name">{{localize "WoDA20.Location"}}</div>
+                    <div class="item-controls">
+                        <a class="item-control item-create" title="{{localize 'WoDA20.AddItem'}}"
+                            data-type="feedingground"><i class="fas fa-plus"></i> {{localize "WoDA20.AddItem"}}
+                        </a>
+                    </div>
+                </li>
+                {{#each actor.feedinggrounds as |item id|}}
+                <li class="item flexcol" data-item-id="{{item._id}}">
+                    <div class="flexrow">
+                        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"
+                            alt="{{item.name}}" />
+                        </div>
+                        <h4 class="item-name collapsible" style="text-align: left;">{{item.name}}</h4>
+                        <h4 class="item-name" style="text-transform: capitalize;">{{item.data.feedinggroundlocation}}</h4>
+                        <div class="item-controls">
+                            <a class="item-control item-chat" title="{{localize 'WoDA20.ShowToChat'}}"><i
+                                class="fas fa-comment-alt"></i></a>
+                            <a class="item-control item-edit" title="{{localize 'WoDA20.Edit'}}"><i
+                                    class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="{{localize 'WoDA20.Delete'}}"><i
+                                    class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-content" style="text-align: left;">
+                        {{{item.data.description}}}
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+            <br/>
+            {{/if}}
+        </div>
+        <!-- Vehicles -->
+        <div class="skills grid grid-1col flex-group-center">
+            {{#if isCharacter}}
+            <label class="label-header">Vehicle</label>
+            <ol class="items-list">
+                <li class="item flexrow item-header">
+                    <div class="item-image"></div>
+                    <div class="item-name" style="text-align: left;">{{localize "WoDA20.Name"}}</div>
+                    <div class="item-name">S. Speed</div>
+                    <div class="item-name">M. Speed</div>
+                    <div class="item-name">Maneuver</div>
+                    <div class="item-controls">
+                        <a class="item-control item-create" title="{{localize 'WoDA20.AddItem'}}"
+                            data-type="vehicle"><i class="fas fa-plus"></i> {{localize "WoDA20.AddItem"}}
+                        </a>
+                    </div>
+                </li>
+                {{#each actor.vehicles as |item id|}}
+                <li class="item flexcol" data-item-id="{{item._id}}">
+                    <div class="flexrow">
+                        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"
+                            alt="{{item.name}}" />
+                        </div>
+                        <h4 class="item-name collapsible" style="text-align: left;">{{item.name}}</h4>
+                        <h4 class="item-name">{{item.data.vehiclesafespeed}}</h4>
+                        <h4 class="item-name">{{item.data.vehiclemaxspeed}}</h4>
+                        <h4 class="item-name">{{item.data.vehiclemaneuver}}</h4>
+                        <div class="item-controls">
+                            <a class="item-control item-chat" title="{{localize 'WoDA20.ShowToChat'}}"><i
+                                class="fas fa-comment-alt"></i></a>
+                            <a class="item-control item-edit" title="{{localize 'WoDA20.Edit'}}"><i
+                                    class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="{{localize 'WoDA20.Delete'}}"><i
+                                    class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-content" style="text-align: left;">
+                        {{{item.data.description}}}
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+            <br/>
+            {{/if}}
+        </div>
+    </div>
+</div>

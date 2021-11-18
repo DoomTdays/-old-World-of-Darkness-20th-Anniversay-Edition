@@ -1,0 +1,22 @@
+<div class="resource flex-group-center Gnosis">
+    <div class="flexrow">
+        <i class="fas fa-minus resource-control resource-minus" data-resource="gnosis" data-action="minus"></i>
+        <label 
+            for="data.data.gnosis" 
+            class="resource-label vrollable"
+            name="gnosis"
+            data-roll="{{data.data.gnosis.max}}"
+            data-noability="true"
+            data-label="{{localize 'WoDA20.RollingGnosis'}}"
+            >{{localize "WoDA20.Gnosis"}}
+        </label>
+        <i class="fas fa-plus resource-control resource-plus" data-resource="gnosis" data-action="plus"></i>
+    </div>
+    <div class="resource-content flexrow flex-center flex-between">
+        <div class="resource-counter" data-states="x:full" data-max="{{data.data.gnosis.max}}" data-full="{{data.data.gnosis.full}}" data-name="data.gnosis">
+            {{#numLoop data.data.gnosis.max}}
+            <span class="resource-counter-step" data-index="{{this}}" data-state=""></span>
+            {{/numLoop}}
+        </div>
+    </div>
+</div>

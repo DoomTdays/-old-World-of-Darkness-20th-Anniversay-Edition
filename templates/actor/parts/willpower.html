@@ -1,0 +1,41 @@
+<div class="resource flex-group-center willpower">
+  <div class="flexrow">
+    <i
+      class="fas fa-minus resource-control resource-minus"
+      data-resource="willpower"
+      data-action="minus"
+    ></i>
+    <label
+      for="data.data.willpower"
+      class="resource-label vrollable"
+      name="willpower"
+      data-roll="{{data.data.willpower.max}}"
+      data-noability="true"
+      data-label="{{localize 'WoDA20.RollingWillpower'}}"
+      >{{localize "WoDA20.Willpower"}}
+    </label>
+    <i
+      class="fas fa-plus resource-control resource-plus"
+      data-resource="willpower"
+      data-action="plus"
+    >
+  </i>
+  </div>
+  <div class="resource-content flexrow flex-center flex-between">
+    <div
+      class="resource-counter"
+      data-states="/:superficial"
+      data-max="{{data.data.willpower.max}}"
+      data-superficial="{{data.data.willpower.superficial}}"
+      data-name="data.willpower"
+    >
+      {{#numLoop data.data.willpower.max}}
+      <span
+        class="resource-counter-step"
+        data-index="{{this}}"
+        data-state=""
+      ></span>
+      {{/numLoop}}
+    </div>
+  </div>
+</div>

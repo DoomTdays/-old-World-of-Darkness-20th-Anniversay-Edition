@@ -1,0 +1,14 @@
+<div class="resource flex-group-center Arete">
+    <div class="flexrow">
+        <i class="fas fa-minus resource-control resource-minus" data-resource="arete" data-action="minus"></i>
+        <label for="data.data.arete" class="resource-label">{{localize "WoDA20.Arete"}}</label>
+        <i class="fas fa-plus resource-control resource-plus" data-resource="arete" data-action="plus"></i>
+    </div>
+    <div class="resource-content flexrow flex-center flex-between">
+        <div class="resource-counter" data-states="x:full" data-max="{{data.data.arete.max}}" data-full="{{data.data.arete.full}}" data-name="data.arete">
+            {{#numLoop data.data.arete.max}}
+            <span class="resource-counter-step" data-index="{{this}}" data-state=""></span>
+            {{/numLoop}}
+        </div>
+    </div>
+</div>

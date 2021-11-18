@@ -1,0 +1,70 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" alt="Item Image" />
+        <div class="header-fields flex-center">
+            <label class="item-label" style="font-size: 16px; margin:auto; width: 50%;">Name</label>
+            <input name="name" type="text" value="{{item.name}}" style="margin:auto; width: 50%;" placeholder="{{localize 'WoDA20.Name'}}" />
+          </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">{{localize "WoDA20.Description"}}</a>
+        <a class="item" data-tab="attributes">{{localize "WoDA20.Attributes"}}</a>
+        <a class="item" data-tab="roll">{{localize "WoDA20.Roll"}}</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            {{editor content=data.data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+
+        {{!-- Attributes Tab --}}
+        <div class="tab type" data-group="primary" data-tab="attributes">
+            <div class="resource grid grid-2col flex-center">
+                <label class="resource-label item-label">Type</label>
+                <label class="resource-label item-label">Difficulty</label>
+            </div>
+            <div class="resource grid grid-2col flex-center">
+                <select name="data.type" data-type="String" style="text-align-last:center; margin:auto; width: 70%;">
+                    {{#select data.data.merittype}}
+                    <option value="melee_weapon">Melee Weapon</option>
+                    <option value="ranged_weapon">Ranged Weapon</option>
+                    {{/select}}
+                </select>
+                <input type="text" name="data.diff" value="{{data.data.diff}}" style="text-align-last:center; margin:auto; width: 70%;" />
+            </div>
+            <div class="resource grid grid-2col flex-center">
+                <label class="resource-label item-label">Damage</label>
+                <label class="resource-label item-label">Range</label>
+            </div>
+            <div class="resource grid grid-2col flex-center">
+                <input type="text" name="data.damage" value="{{data.data.damage}}" style="text-align-last:center; margin:auto; width: 70%;" />
+                <input type="text" name="data.range" value="{{data.data.range}}" style="text-align-last:center; margin:auto; width: 70%;" />
+            </div>
+            <div class="resource grid grid-2col flex-center">
+                <label class="resource-label item-label">Rate</label>
+                <label class="resource-label item-label">Clip</label>
+            </div>
+            <div class="resource grid grid-2col flex-center">
+                <input type="text" name="data.rate" value="{{data.data.rate}}" style="text-align-last:center; margin:auto; width: 70%;" />
+                <input type="text" name="data.clip" value="{{data.data.clip}}" style="text-align-last:center; margin:auto; width: 70%;" />
+            </div>
+            <div class="resource grid grid-2col flex-center">
+                <label class="resource-label item-label">Conceal</label>
+            </div>
+            <div class="resource grid grid-2col flex-center">
+                <input type="text" name="data.conceal" value="{{data.data.conceal}}" style="text-align-last:center; margin:auto; width: 70%;" />
+            </div>
+        </div>
+
+        {{!-- Roll Tab --}}
+        <div class="tab" data-group="primary" data-tab="roll">
+            <div style="text-align: center;">POTĘŻNY CYFROWY DIABEŁ dopiero progrmauje backend!</div>
+        </div>
+
+    </section>
+</form>

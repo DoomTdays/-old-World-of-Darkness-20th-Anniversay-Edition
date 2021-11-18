@@ -1,0 +1,482 @@
+<div class="tab features" data-group="primary" data-tab="features">
+
+    <!-- Background, Virtues & Humanity -->
+    <div class="skills grid grid-2col flex-group-center">
+        <!-- Background -->
+        <div class="skills grid grid-1col flex-group-center">
+            <label class="label-header">Backgrounds</label>
+            <ol class="items-list">
+                {{#each actor.backgrounds as |background key|}}
+                <li class="item flexrow item-header">
+                    <div class="item-image"></div>
+                    <div class="item-name-header" style="text-align: left;">{{localize "WoDA20.Name"}}</div>
+                    <div class="item-name-header">{{localize "WoDA20.Points"}}</div>
+                    <div class="item-controls">
+                        <a class="item-control item-create" title="{{localize 'WoDA20.AddFeat'}}" data-type="background"
+                            data-featuretype="{{key}}"><i class="fas fa-plus"></i> {{localize "WoDA20.AddFeat"}}
+                        </a>
+                    </div>
+                </li>
+                {{#each background as |item id|}}
+                <li class="item flexcol" data-item-id="{{item._id}}">
+                    <div class="flexrow">
+                        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"
+                                alt="{{item.name}}" />
+                        </div>
+                        <h4 class="item-name collapsible" style="text-align: left;">{{item.name}}</h4>
+                        {{#if (ne key "background")}}
+                        <div class="resource-value-static" data-value="{{item.data.points}}" data-name="items.{{item._id}}">
+                            {{#numLoop 5}}
+                            <span class="resource-value-static-step" data-index="{{this}}"></span>
+                            {{/numLoop}}
+                        </div>
+                        {{else}}
+                        <div class="resource-value" data-value="{{item.data.points}}" data-name="items.{{item._id}}">
+                            <span class="resource-value-empty"></span>
+                            {{#numLoop 5}}
+                            <span class="resource-value-step" data-index="{{this}}"></span>
+                            {{/numLoop}}
+                        </div>
+                        {{/if}}
+                        <div class="item-controls">
+                            <a class="item-control item-chat" title="{{localize 'WoDA20.ShowToChat'}}"><i
+                                class="fas fa-comment-alt"></i></a>
+                            <a class="item-control item-edit" title="{{localize 'WoDA20.Edit'}}"><i
+                                    class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="{{localize 'WoDA20.Delete'}}"><i
+                                    class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-content">
+                        {{{item.data.description}}}
+                    </div>
+                </li>
+                {{/each}}
+                {{/each}}
+            </ol>
+        </div>
+        <!-- Humanity & Virtues -->
+        <div class="skills grid grid-1col flex-group-center">
+            <!-- Humanity -->
+            <div class="resources grid grid-1col">
+            <label class="label-header">Humanity</label>
+                <div class="resource flex-group-center humanity">
+                    <label 
+                    for="data.data.humanity.value" 
+                    class="resource-label vrollable" 
+                    name="humanity" 
+                    data-roll="{{data.data.humanity.value}}" 
+                    data-noability="true"
+                    data-label="{{localize 'WoDA20.Humanity'}}"
+                    >{{localize "WoDA20.Humanity"}}
+                    </label>
+                    <div class="resource-content flexrow flex-center flex-between">
+                        <div class="resource-counter" data-states="-:value" data-value="{{data.data.humanity.value}}"  data-name="data.humanity">
+                            {{#numLoop 10}}
+                            <span class="resource-counter-step" data-index="{{this}}" data-state=""></span>
+                            {{/numLoop}}
+                        </div>
+                    </div>
+                </div>
+                <div class="header-fields">
+                    <label style="margin: auto;">Bearing</label><br/>
+                    <input type="text" name="data.humanity.bearing" value="{{data.data.humanity.bearing}}" style="width: 45%; font-size: 12px;" placeholder="-" />
+                </div>
+             </div>
+            <!-- Virtues -->
+            <div class="resources grid grid-1col">
+            <label class="label-header">Virtues</label>
+            {{log 'virtue' data.data.virtues }}
+            {{#each data.data.virtues as |virtue key|}}
+                <div class="skill flexrow flex-center">
+                    <label
+                    for="data.data.virtues.{{key}}.value"
+                    class="resource-label vrollable"
+                    name="virtue" 
+                    data-roll="{{virtue.value}}"
+                    data-noability="true"
+                    data-label="{{localize virtue.name}}"
+                    >{{localize virtue.name}}
+                    </label>
+                    <div
+                    class="resource-value"
+                    data-value="{{virtue.value}}"
+                    data-name="data.virtues.{{key}}.value"
+                    >
+                    <span class="resource-value-empty"></span>
+                    {{#numLoop 5}}
+                    <span class="resource-value-step" data-index="{{this}}"></span>
+                    {{/numLoop}}
+                    </div>
+                </div>
+            {{/each}}
+            </div>
+            <!-- Frenzy & Rötschreck -->
+            <div>
+                <div style="width: 45%; display: inline-block; padding: 0px 5px 0px 15px">
+                    <label for="placeholder" class="resource-label">{{localize "WoDA20.Frenzy"}}</label>
+                    <button class="vrollable frenzy from-center" type="text" name="frenzy" data-roll="{{data.data.virtues.selfControl.value }}" data-name="frenzy" data-noability="true"  data-label="{{localize 'WoDA20.ResistingFrenzy'}}">{{localize "WoDA20.Roll"}}</button>
+                </div>
+                    <div style="width: 45%; display: inline-block; padding: 0px 5px 0px 15px">
+                    <label for="placeholder" class="resource-label">{{localize "WoDA20.Rötschreck"}}</label>
+                    <button class="vrollable rotschreck" type="text" name="rötschreck" data-roll="{{data.data.virtues.courage.value}}" data-name="rotschreck" data-noability="true" data-label="{{localize 'WoDA20.ResistingRötschreck'}}">{{localize "WoDA20.Roll"}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Merits & Flaws -->
+    <div class="skills grid grid-2col flex-group-center">
+        <!-- Merits -->
+        <div class="skills grid grid-1col flex-group-center">
+            {{#if isCharacter}}
+            <label class="label-header">Merits</label>
+            <ol class="items-list">
+                <li class="item flexrow item-header">
+                    <div class="item-image"></div>
+                    <div class="item-name" style="text-align: left; flex-basis: 35%;">{{localize "WoDA20.Name"}}</div>
+                    <div class="item-name" style="flex-basis: 12%;">{{localize "WoDA20.Type"}}</div>
+                    <div class="item-name" style="flex-basis: 12%;">{{localize "WoDA20.Cost"}}</div>
+                    <div class="item-controls">
+                        <a class="item-control item-create" title="{{localize 'WoDA20.AddItem'}}"
+                            data-type="merit"><i class="fas fa-plus"></i> {{localize "WoDA20.AddItem"}}
+                        </a>
+                    </div>
+                </li>
+                {{#each actor.merits as |item id|}}
+                <li class="item flexcol" data-item-id="{{item._id}}">
+                    <div class="flexrow">
+                        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"
+                            alt="{{item.name}}" />
+                        </div>
+                        <h4 class="item-name collapsible" style="text-align: left; flex-basis: 35%;">{{item.name}}</h4>
+                        <h4 class="item-name" style="text-transform: capitalize; flex-basis: 12%;">{{item.data.merittype}}</h4>
+                        <h4 class="item-name" style="flex-basis: 12%;">{{item.data.meritcost}}</h4>
+                        <div class="item-controls">
+                            <a class="item-control item-chat" title="{{localize 'WoDA20.ShowToChat'}}"><i
+                                class="fas fa-comment-alt"></i></a>
+                            <a class="item-control item-edit" title="{{localize 'WoDA20.Edit'}}"><i
+                                    class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="{{localize 'WoDA20.Delete'}}"><i
+                                    class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-content" style="text-align: left;">
+                        {{{item.data.description}}}
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+            <br/>
+            {{/if}}
+        </div>
+        <!-- Flaws -->
+        <div class="skills grid grid-1col flex-group-center">
+            {{#if isCharacter}}
+            <label class="label-header">Flaws</label>
+            <ol class="items-list">
+                <li class="item flexrow item-header">
+                    <div class="item-image"></div>
+                    <div class="item-name" style="text-align: left; flex-basis: 35%;">{{localize "WoDA20.Name"}}</div>
+                    <div class="item-name" style="flex-basis: 12%;">{{localize "WoDA20.Type"}}</div>
+                    <div class="item-name" style="flex-basis: 12%;">{{localize "WoDA20.Bonus"}}</div>
+                    <div class="item-controls">
+                        <a class="item-control item-create" title="{{localize 'WoDA20.AddItem'}}"
+                            data-type="flaw"><i class="fas fa-plus"></i> {{localize "WoDA20.AddItem"}}
+                        </a>
+                    </div>
+                </li>
+                {{#each actor.flaws as |item id|}}
+                <li class="item flexcol" data-item-id="{{item._id}}">
+                    <div class="flexrow">
+                        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"
+                            alt="{{item.name}}" />
+                        </div>
+                        <h4 class="item-name collapsible" style="text-align: left; flex-basis: 35%;">{{item.name}}</h4>
+                        <h4 class="item-name" style="text-transform: capitalize; flex-basis: 12%;">{{item.data.flawtype}}</h4>
+                        <h4 class="item-name" style="flex-basis: 12%;">{{item.data.flawbonus}}</h4>
+                        <div class="item-controls">
+                            <a class="item-control item-chat" title="{{localize 'WoDA20.ShowToChat'}}"><i
+                                class="fas fa-comment-alt"></i></a>
+                            <a class="item-control item-edit" title="{{localize 'WoDA20.Edit'}}"><i
+                                    class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="{{localize 'WoDA20.Delete'}}"><i
+                                    class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-content" style="text-align: left;">
+                        {{{item.data.description}}}
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+            <br/>
+            {{/if}}
+        </div>
+    </div>
+
+    <!-- Derangements & Blood bonds -->
+    <div class="skills grid grid-2col flex-group-center">
+        <!-- Derangements -->
+        <!-- Tutaj trzeba poprawić rzeczy w mortal-actor-sheet.js, coteria-actor-sheet.js i templata.json bo nie jest potrzebna zmienna derangement. 
+            Wszystko działa ale niepotrzebnie to robi burdel w kodzie a ja jestem leniwą pałą i nie chcę mie się tego teraz robić -->
+        <div class="skills grid grid-1col flex-group-center">
+            {{#if isCharacter}}
+            <label class="label-header">Derangements</label>
+            <ol class="items-list flex-group-left">
+                <li class="item flexrow item-header">
+                    <div class="item-image"></div>
+                    <div class="item-name" style="text-align: left;">{{localize "WoDA20.Name"}}</div>
+                    <div class="item-controls">
+                        <a class="item-control item-create" title="{{localize 'WoDA20.AddItem'}}"
+                            data-type="derangement"><i class="fas fa-plus"></i> {{localize "WoDA20.AddItem"}}
+                        </a>
+                    </div>
+                </li>
+                {{#each actor.derangements as |item id|}}
+                <li class="item flexcol" data-item-id="{{item._id}}">
+                    <div class="flexrow">
+                        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"
+                            alt="{{item.name}}" />
+                        </div>
+                        <h4 class="item-name collapsible" style="text-align: left;">{{item.name}}</h4>
+                        <div class="item-controls">
+                            <a class="item-control item-chat" title="{{localize 'WoDA20.ShowToChat'}}"><i
+                                class="fas fa-comment-alt"></i></a>
+                            <a class="item-control item-edit" title="{{localize 'WoDA20.Edit'}}"><i
+                                    class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="{{localize 'WoDA20.Delete'}}"><i
+                                    class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-content" style="text-align: left;">
+                        {{{item.data.description}}}
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+            <br/>
+            {{/if}}
+        </div>
+        <!-- Blood Bonds -->
+        <div class="skills grid grid-1col flex-group-center">
+            {{#if isCharacter}}
+            <label class="label-header">Blood Bonds</label>
+            <ol class="items-list">
+                <li class="item flexrow item-header">
+                    <div class="item-image"></div>
+                    <div class="item-name" style="text-align: left;">Bound To</div>
+                    <div class="item-name">Rating</div>
+                    <div class="item-controls">
+                        <a class="item-control item-create" title="{{localize 'WoDA20.AddItem'}}"
+                            data-type="bloodbond"><i class="fas fa-plus"></i> {{localize "WoDA20.AddItem"}}
+                        </a>
+                    </div>
+                </li>
+                {{#each actor.bloodbonds as |item id|}}
+                <li class="item flexcol" data-item-id="{{item._id}}">
+                    <div class="flexrow">
+                        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"
+                            alt="{{item.name}}" />
+                        </div>
+                        <h4 class="item-name collapsible" style="text-align: left;">{{item.name}}</h4>
+                        <h4 class="item-name">{{item.data.bloodbondrating}}</h4>
+                        <div class="item-controls">
+                            <a class="item-control item-chat" title="{{localize 'WoDA20.ShowToChat'}}"><i
+                                class="fas fa-comment-alt"></i></a>
+                            <a class="item-control item-edit" title="{{localize 'WoDA20.Edit'}}"><i
+                                    class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="{{localize 'WoDA20.Delete'}}"><i
+                                    class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-content" style="text-align: left;">
+                        {{{item.data.description}}}
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+            <br/>
+            {{/if}}
+        </div>
+    </div>
+
+    <!-- Prestation & Other Traits -->
+    <div class="skills grid grid-2col flex-group-center">
+        <!-- Prestation -->
+        <div class="skills grid grid-1col flex-group-center">
+            {{#if isCharacter}}
+            <label class="label-header">Prestation</label>
+            <ol class="items-list">
+                <li class="item flexrow item-header">
+                    <div class="item-image"></div>
+                    <div class="item-name" style="text-align: left;">Name</div>
+                    <div class="item-name">Type</div>
+                    <div class="item-controls">
+                        <a class="item-control item-create" title="{{localize 'WoDA20.AddItem'}}"
+                            data-type="boon"><i class="fas fa-plus"></i> {{localize "WoDA20.AddItem"}}
+                        </a>
+                    </div>
+                </li>
+                {{#each actor.boons as |item id|}}
+                <li class="item flexcol" data-item-id="{{item._id}}">
+                    <div class="flexrow">
+                        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"
+                            alt="{{item.name}}" />
+                        </div>
+                        <h4 class="item-name collapsible" style="text-align: left;">{{item.name}}</h4>
+                        <h4 class="item-name">{{item.data.boontype}}</h4>
+                        <div class="item-controls">
+                            <a class="item-control item-chat" title="{{localize 'WoDA20.ShowToChat'}}"><i
+                                class="fas fa-comment-alt"></i></a>
+                            <a class="item-control item-edit" title="{{localize 'WoDA20.Edit'}}"><i
+                                    class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="{{localize 'WoDA20.Delete'}}"><i
+                                    class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-content" style="text-align: left;">
+                        {{{item.data.description}}}
+                    </div>
+                </li>
+                {{/each}}
+            </ol>
+            <br/>
+            {{/if}}
+        </div>
+        <!-- Other Traits -->
+        <div class="skills grid grid-1col flex-group-center">
+            <label class="label-header">Other Traits</label>
+            <ol class="items-list">
+                {{#each actor.othertraits as |othertrait key|}}
+                <li class="item flexrow item-header">
+                    <div class="item-image"></div>
+                    <div class="item-name-header" style="text-align: left;">{{localize "WoDA20.Name"}}</div>
+                    <div class="item-name-header">{{localize "WoDA20.Points"}}</div>
+                    <div class="item-controls">
+                        <a class="item-control item-create" title="{{localize 'WoDA20.AddFeat'}}" data-type="othertrait"
+                            data-featuretype="{{key}}"><i class="fas fa-plus"></i> {{localize "WoDA20.AddFeat"}}
+                        </a>
+                    </div>
+                </li>
+                {{#each othertrait as |item id|}}
+                <li class="item flexcol" data-item-id="{{item._id}}">
+                    <div class="flexrow">
+                        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"
+                                alt="{{item.name}}" />
+                        </div>
+                        <h4 class="item-name collapsible" style="text-align: left;">{{item.name}}</h4>
+                        {{#if (ne key "othertrait")}}
+                        <div class="resource-value-static" data-value="{{item.data.points}}" data-name="items.{{item._id}}">
+                            {{#numLoop 5}}
+                            <span class="resource-value-static-step" data-index="{{this}}"></span>
+                            {{/numLoop}}
+                        </div>
+                        {{else}}
+                        <div class="resource-value" data-value="{{item.data.points}}" data-name="items.{{item._id}}">
+                            <span class="resource-value-empty"></span>
+                            {{#numLoop 5}}
+                            <span class="resource-value-step" data-index="{{this}}"></span>
+                            {{/numLoop}}
+                        </div>
+                        {{/if}}
+                        <div class="item-controls">
+                            <a class="item-control item-chat" title="{{localize 'WoDA20.ShowToChat'}}"><i
+                                class="fas fa-comment-alt"></i></a>
+                            <a class="item-control item-edit" title="{{localize 'WoDA20.Edit'}}"><i
+                                    class="fas fa-edit"></i></a>
+                            <a class="item-control item-delete" title="{{localize 'WoDA20.Delete'}}"><i
+                                    class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                    <div class="collapsible-content" style="text-align: left;">
+                        {{{item.data.description}}}
+                    </div>
+                </li>
+                {{/each}}
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+
+    <!-- Expanded Backgrounds -->
+    <!-- Raczej do usunięcia -->
+    <!-- <div class="skills grid grid-1col flex-group-left">
+    <label class="label-header">Expanded Backgrounds</label>
+    <table style="width: 100%;">
+        <tbody>
+            <tr style="height: 17px;">
+                <td style="width: 48%; text-align: center;"><strong>Allies</strong></td>
+                <td style="width: 4%;" rowspan="10">&nbsp;</td>
+                <td style="width: 48%; text-align: center;"><strong>Mentors</strong></td>
+            </tr>
+            <tr style="height:148px;">
+                <td style="width: 48%; height:148px;">
+                    {{editor content=data.data.features.allies target="data.features.allies" button=true owner=owner editable=editable}}
+                </td>
+                <td style="width: 48%; height:148px;">
+                    {{editor content=data.data.features.mentors target="data.features.mentors" button=true owner=owner editable=editable}}
+                </td>
+            </tr>
+            <tr style="height: 17px;">
+                <td style="width: 48%; text-align: center;"><strong>Contacts</strong></td>
+                <td style="width: 48%; text-align: center;"><strong>Resources</strong></td>
+            </tr>
+            <tr style="height:148px;">
+                <td style="width: 48%; height:148px;">
+                    {{editor content=data.data.features.contacts target="data.features.contacts" button=true owner=owner editable=editable}}
+                </td>
+                <td style="width: 48%; height:148px;">
+                    {{editor content=data.data.features.resources target="data.features.resources" button=true owner=owner editable=editable}}
+                </td>
+            </tr>
+            <tr style="height: 17px;">
+                <td style="width: 48%; text-align: center;"><strong>Fame</strong></td>
+                <td style="width: 48%; text-align: center;"><strong>Retainers</strong></td>
+            </tr>
+            <tr style="height:148px;">
+                <td style="width: 48%; height:148px;">
+                    {{editor content=data.data.features.fame target="data.features.fame" button=true owner=owner editable=editable}}
+                </td>
+                <td style="width: 48%; height:148px;">
+                    {{editor content=data.data.features.retainers target="data.features.retainers" button=true owner=owner editable=editable}}
+                </td>
+            </tr>
+            <tr style="height: 17px;">
+                <td style="width: 48%; text-align: center;"><strong>Herd</strong></td>
+                <td style="width: 48%; text-align: center;"><strong>Status</strong></td>
+            </tr>
+            <tr style="height:148px;">
+                <td style="width: 48%; height:148px;">
+                    {{editor content=data.data.features.herd target="data.features.herd" button=true owner=owner editable=editable}}
+                </td>
+                <td style="width: 48%; height:148px;">
+                    {{editor content=data.data.features.status target="data.features.status" button=true owner=owner editable=editable}}
+                </td>
+            </tr>
+            <tr style="height: 17px;">
+                <td style="width: 48%; text-align: center;"><strong>Influence</strong></td>
+                <td style="width: 48%; text-align: center;"><strong>Other</strong></td>
+            </tr>
+            <tr style="height:148px;">
+                <td style="width: 48%; height:148px;">
+                    {{editor content=data.data.features.influence target="data.features.influence" button=true owner=owner editable=editable}}
+                </td>
+                <td style="width: 48%; height:148px;">
+                    {{editor content=data.data.features.other0 target="data.features.other0" button=true owner=owner editable=editable}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <label class="label-header">Havens</label>
+    <table style="height: 180px;">
+        <tbody>
+            <tr>
+                <td>
+                    {{editor content=data.data.features.havens target="data.features.havens" button=true owner=owner editable=editable}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div> -->
+</div>

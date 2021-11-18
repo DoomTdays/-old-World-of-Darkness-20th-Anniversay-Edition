@@ -1,0 +1,25 @@
+<div class="profile-img-zone">
+    <!-- <h1>{{ sheetType }}</h1> Raczej do usunięcia -->
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" width="100"
+        alt="Profile Image" />
+    <div class="grid grid-2col flexrow" style="width: 100%; padding-top: 10px;">
+    <button class="lock-btn" style="border-top-right-radius: 20%; border-bottom-right-radius: 20%;">
+        {{#if locked}}
+        <i class="fa fa-lock"></i>
+        {{ else }}
+        <i class="fa fa-lock-open"></i>
+        {{/if}}
+    </button>
+    <button class="generationLocked" style="border-top-left-radius: 20%; border-bottom-left-radius: 20%;">
+    </button>   
+    </div> 
+    <!-- Tutaj mogą dojść input na exp, średnio estetycznie to wygląda ale to najlepsze miejsce na to -->   
+    <!-- <div class="resource flex-group-center exp">+
+        <div class="resource-content flexrow flex-center flex-between">
+            <input type="number" name="data.exp.value" value="{{data.data.exp.value}}" data-dtype="Number" />
+            /
+            <input type="number" name="data.exp.max" value="{{data.data.exp.max}}" data-dtype="Number" />
+        </div>
+        <label for="data.data.exp" class="resource-label">{{localize "WoDA20.Exp"}}</label>
+    </div> -->
+</div> 

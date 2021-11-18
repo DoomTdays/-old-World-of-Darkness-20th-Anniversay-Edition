@@ -1,0 +1,185 @@
+<div class="tab flex-center" data-group="primary" data-tab="description">
+
+    <!-- Nature & Demeanor -->
+    <label class="label-header">Nature & Demeanor</label>
+    <div class="skills grid grid-2col flex-group-center">
+        <!-- Nature -->
+        <div class="resources grid grid-1col">
+            <div class="header-fields">
+                <label style="margin: auto;">Nature</label><br/>
+                <input type="text" name="data.biography.nature" value="{{data.data.biography.nature}}" style="width: 45%; font-size: 12px;" placeholder="-" />
+            </div>
+            <div style="text-align: left; height: 205px; border-collapse: collapse; background: rgba(0, 0, 0, 0.05); border-top: 1px solid #7a7971; border-bottom: 1px solid #7a7971;">
+                {{editor content=data.data.biography.naturedescription target="data.biography.naturedescription" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+        <!-- Demeanor -->
+        <div class="resources grid grid-1col">
+            <div class="header-fields">
+                <label style="margin: auto;">Demeanor</label><br/>
+                <input type="text" name="data.biography.deamanor" value="{{data.data.biography.deamanor}}" style="width: 45%; font-size: 12px;" placeholder="-" />
+            </div>
+            <div style="text-align: left; height: 205px; border-collapse: collapse; background: rgba(0, 0, 0, 0.05); border-top: 1px solid #7a7971; border-bottom: 1px solid #7a7971;">
+                {{editor content=data.data.biography.deamanordescription target="data.biography.deamanordescription" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Biography -->
+    <label class="label-header">Biography</label>
+    <div class="skills grid grid-2col flex-group-center">
+        <!-- Data -->
+        <div class="resources grid grid-1col" style="gap: 1px;">
+            <div>
+                <lable style="float: left; padding-top: 5px">Age:</lable>
+                <span class="underline">
+                    <input class="underline" type="text" name="data.biography.age" value="{{data.data.biography.age}}" />
+                </span>
+            </div>
+            <div>
+                <lable style="float: left; padding-top: 5px">Date of Birth:</lable>
+                <span class="underline">
+                    <input class="underline" type="text" name="data.biography.dateofbirth" value="{{data.data.biography.dateofbirth}}" />
+                </span>
+            </div>
+            <div>
+                <lable style="float: left; padding-top: 5px">Hair:</lable>
+                <span class="underline">
+                    <input class="underline" type="text" name="data.biography.hair" value="{{data.data.biography.hair}}" />
+                </span>
+            </div>
+            <div>
+                <lable style="float: left; padding-top: 5px">Eyes:</lable>
+                <span class="underline">
+                    <input class="underline" type="text" name="data.biography.eyes" value="{{data.data.biography.eyes}}" />
+                </span>
+            </div>
+            <div>
+                <lable style="float: left; padding-top: 5px">Race:</lable>
+                <span class="underline">
+                    <input class="underline" type="text"name="data.biography.race" value="{{data.data.biography.race}}" />
+                </span>
+            </div>
+            <div>
+                <lable style="float: left; padding-top: 5px">Nationality:</lable>
+                <span class="underline">
+                    <input class="underline" type="text"name="data.biography.nationality" value="{{data.data.biography.nationality}}" />
+                </span>
+            </div>
+            <div>
+                <lable style="float: left; padding-top: 5px">Height:</lable>
+                <span class="underline">
+                    <input class="underline" type="text" name="data.biography.height" value="{{data.data.biography.height}}" />
+                </span>
+            </div>
+            <div>
+                <lable style="float: left; padding-top: 5px">Weight:</lable>
+                <span class="underline">
+                    <input class="underline" type="text"  name="data.biography.weight" value="{{data.data.biography.weight}}" />
+                </span>
+            </div>
+            <div>
+                <lable style="float: left; padding-top: 5px">Sex:</lable>
+                <span class="underline">
+                    <input class="underline" type="text"  name="data.biography.sex" value="{{data.data.biography.sex}}"/>
+            </span>
+            </div>
+        </div>
+        <!-- Apperance -->
+        <div class="resources grid grid-1col" style="gap: 7px;">
+            <label style="margin: auto;">Apperance</label>
+            <div style="text-align: left; height: 218px; border-collapse: collapse; background: rgba(0, 0, 0, 0.05); border-top: 1px solid #7a7971; border-bottom: 1px solid #7a7971;">
+                {{editor content=data.data.biography.apperance target="data.biography.apperance" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+    </div>
+    <!-- Pack -->
+    <label class="label-header">Pack & Totem</label>
+    <div class="skills grid grid-2col flex-group-center">
+        <!-- Nature -->
+        <div class="resources grid grid-1col">
+            <div class="header-fields">
+                <label style="margin: auto;">Pack</label><br/>
+                <input type="text" name="data.biography.pack" value="{{data.data.biography.pack}}" style="width: 45%; font-size: 12px;" placeholder="-" />
+            </div>
+            <div style="text-align: left; height: 140px; border-collapse: collapse; background: rgba(0, 0, 0, 0.05); border-top: 1px solid #7a7971; border-bottom: 1px solid #7a7971;">
+                {{editor content=data.data.biography.packdescription target="data.biography.packdescription" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+        <!-- Demeanor -->
+        <div class="resources grid grid-1col">
+            <div class="header-fields">
+                <label style="margin: auto;">Totem</label><br/>
+                <input type="text" name="data.biography.totem" value="{{data.data.biography.totem}}" style="width: 45%; font-size: 12px;" placeholder="-" />
+            </div>
+            <div style="text-align: left; height: 140px; border-collapse: collapse; background: rgba(0, 0, 0, 0.05); border-top: 1px solid #7a7971; border-bottom: 1px solid #7a7971;">
+                {{editor content=data.data.biography.totemdescription target="data.biography.totemdescription" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+    </div>
+
+    <!-- Sept -->
+    <label class="label-header">Sept</label>
+    <div class="skills grid grid-2col flex-group-center">
+        <!-- Data -->
+        <div class="resources grid grid-1col" style="gap: 1px;">
+            <div>
+                <lable style="float: left; padding-top: 5px">Name:</lable>
+                <span class="underline">
+                    <input class="underline" type="text" name="data.biography.caernname" value="{{data.data.biography.caernname}}" />
+                </span>
+            </div>
+            <div>
+                <lable style="float: left; padding-top: 5px">Caern Location:</lable>
+                <span class="underline">
+                    <input class="underline" type="text" name="data.biography.caernlocation" value="{{data.data.biography.caernlocation}}" />
+                </span>
+            </div>
+            <div>
+                <lable style="float: left; padding-top: 5px">Type:</lable>
+                <span class="underline">
+                    <input class="underline" type="text" name="data.biography.caerntype" value="{{data.data.biography.caerntype}}" />
+                </span>
+            </div>
+            <div>
+                <lable style="float: left; padding-top: 5px">Level:</lable>
+                <span class="underline">
+                    <input class="underline" type="text" name="data.biography.caernlevel" value="{{data.data.biography.caernlevel}}" />
+                </span>
+            </div>
+            <div>
+                <lable style="float: left; padding-top: 5px">Totem:</lable>
+                <span class="underline">
+                    <input class="underline" type="text"name="data.biography.caerntotem" value="{{data.data.biography.caerntotem}}" />
+                </span>
+            </div>
+            <div>
+                <lable style="float: left; padding-top: 5px">Leader:</lable>
+                <span class="underline">
+                    <input class="underline" type="text"name="data.biography.caernleader" value="{{data.data.biography.caernleader}}" />
+                </span>
+            </div>
+        </div>
+        <!-- Details -->
+        <div class="resources grid grid-1col" style="gap: 7px;">
+            <label style="margin: auto;">Details</label>
+            <div style="text-align: left; height: 136px; border-collapse: collapse; background: rgba(0, 0, 0, 0.05); border-top: 1px solid #7a7971; border-bottom: 1px solid #7a7971;">
+                {{editor content=data.data.biography.caerndetails target="data.biography.caerndetails" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+    </div>
+    <!-- Goals -->
+    <label class="label-header">Goals</label>
+    <div class="resources grid grid-1col" style="padding-top: 10px">
+        <div style="text-align: left; height: 240px; border-collapse: collapse; background: rgba(0, 0, 0, 0.05); border-top: 1px solid #7a7971; border-bottom: 1px solid #7a7971;">
+            {{editor content=data.data.goals.goals target="data.biography.goals" button=true owner=owner editable=editable}}
+        </div>
+    </div>
+    <!-- History -->
+    <label class="label-header">History</label><br/>
+    <div class="resources grid grid-1col" style="padding-top: 10px">
+        <div style="text-align: left; height: 680px; border-collapse: collapse; background: rgba(0, 0, 0, 0.05); border-top: 1px solid #7a7971; border-bottom: 1px solid #7a7971;">
+            {{editor content=data.data.history.apperance target="data.biography.history" button=true owner=owner editable=editable}}
+        </div>
+    </div>
+</div>
